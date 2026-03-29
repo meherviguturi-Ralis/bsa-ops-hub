@@ -1,0 +1,1074 @@
+/* ============================================================
+   BSA Ops Hub — Empower Academy CSS
+   ============================================================ */
+
+/* ── HUD (rank + XP bar + streak) ────────────────────────── */
+.ac-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0 16px;
+  gap: 16px;
+}
+
+.ac-hud-rank {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.ac-rank-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.ac-rank-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ac-rank-xp {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.ac-xp-bar-wrap {
+  flex: 1;
+  max-width: 140px;
+}
+
+.ac-xp-bar {
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ac-xp-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.ac-streak {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* ── World Grid ────────────────────────────────────────────── */
+.ac-world-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 4px 0 16px;
+}
+
+.ac-world-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.ac-world-card:hover:not(.ac-world-locked) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.ac-world-locked {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ac-world-done {
+  opacity: 0.85;
+}
+
+.ac-world-emoji {
+  font-size: 28px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.ac-world-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.ac-world-prog {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ac-world-bar {
+  flex: 1;
+  height: 5px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ac-world-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.ac-world-count {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.ac-world-complete {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--success, #3fb950);
+  font-weight: 600;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.ac-stats-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.ac-stats-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+.ac-back-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.15s;
+}
+
+.ac-back-btn:hover {
+  opacity: 0.75;
+}
+
+/* ── Path header (world name + back button) ─────────────────── */
+.ac-path-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.ac-path-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Level Path ───────────────────────────────────────────────── */
+.ac-lv-path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 8px 0 24px;
+}
+
+.ac-lv-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.15s;
+  position: relative;
+  width: 180px;
+  text-align: center;
+}
+
+.ac-lv-node.ac-lv-locked {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.ac-lv-node:hover:not(.ac-lv-locked) {
+  background: var(--bg-secondary);
+}
+
+.ac-lv-circle {
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--border-default);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: var(--bg-secondary);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.ac-lv-node.ac-lv-current .ac-lv-circle {
+  background: var(--bg-tertiary);
+  box-shadow: 0 0 12px rgba(88,166,255,0.3);
+}
+
+.ac-lv-node.ac-lv-done .ac-lv-circle {
+  background: var(--bg-tertiary);
+}
+
+.ac-lv-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.ac-lv-node.ac-lv-current .ac-lv-label {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ac-lv-boss-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: #f0883e33;
+  color: #f0883e;
+  border: 1px solid #f0883e55;
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+.ac-lv-conn {
+  width: 2px;
+  height: 20px;
+  background: var(--border-default);
+}
+
+.ac-lv-conn-done {
+  background: var(--accent);
+}
+
+/* ── Boss Intro ────────────────────────────────────────────── */
+.ac-boss-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  gap: 12px;
+  animation: ac-boss-appear 0.5s ease;
+}
+
+@keyframes ac-boss-appear {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.ac-boss-emoji {
+  font-size: 64px;
+  animation: ac-boss-shake 0.6s ease 0.3s;
+  display: inline-block;
+}
+
+@keyframes ac-boss-shake {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(-8deg); }
+  40%       { transform: rotate(8deg); }
+  60%       { transform: rotate(-5deg); }
+  80%       { transform: rotate(5deg); }
+}
+
+.ac-boss-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #f0883e;
+  text-transform: uppercase;
+}
+
+.ac-boss-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ac-boss-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+.ac-boss-final-badge {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffd700;
+  letter-spacing: 0.1em;
+  animation: ac-pulse-gold 1.2s ease-in-out infinite;
+}
+
+@keyframes ac-pulse-gold {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+.ac-boss-start-btn {
+  margin-top: 8px;
+}
+
+/* ── Level wrap + header ────────────────────────────────────── */
+.ac-level-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 24px;
+}
+
+.ac-level-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.ac-level-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ac-level-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ── Parts progress bar (A/B/C/D) ─────────────────────────── */
+.ac-parts-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 2px 0 4px;
+}
+
+.ac-part-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.ac-part-active,
+.ac-part-done {
+  opacity: 1;
+}
+
+.ac-part-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.ac-part-active .ac-part-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.ac-part-done .ac-part-dot {
+  background: var(--success, #3fb950);
+  border-color: var(--success, #3fb950);
+  color: #fff;
+}
+
+.ac-part-lbl {
+  font-size: 10px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.ac-part-active .ac-part-lbl {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ac-part-conn {
+  width: 24px;
+  height: 2px;
+  background: var(--border-default);
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+/* ── Learn card ─────────────────────────────────────────────── */
+.ac-learn-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.ac-learn-topic {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.ac-learn-content {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.ac-learn-content p {
+  margin-bottom: 12px;
+}
+
+.ac-learn-content strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.ac-tip {
+  background: var(--accent)18;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Flashcard ──────────────────────────────────────────────── */
+.ac-flash-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.ac-flash-title {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.ac-flip-card {
+  width: 100%;
+  max-width: 420px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.ac-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ac-flipped .ac-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.ac-flip-front,
+.ac-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ac-flip-front {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+}
+
+.ac-flip-back {
+  background: var(--accent)1a;
+  border: 1px solid var(--accent)55;
+  transform: rotateY(180deg);
+}
+
+.ac-flip-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.ac-flip-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.ac-flip-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.ac-flip-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* ── Quiz ───────────────────────────────────────────────────── */
+.ac-quiz-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ac-quiz-progress {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.ac-quiz-q {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.ac-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ac-quiz-opt {
+  width: 100%;
+  text-align: left;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1.4;
+}
+
+.ac-quiz-opt:hover:not(:disabled) {
+  background: var(--bg-tertiary);
+  border-color: var(--border-active);
+}
+
+.ac-opt-correct {
+  background: var(--success, #3fb950)1a !important;
+  border-color: var(--success, #3fb950) !important;
+  color: var(--success, #3fb950) !important;
+}
+
+.ac-opt-wrong {
+  background: var(--danger, #f85149)1a !important;
+  border-color: var(--danger, #f85149) !important;
+  color: var(--danger, #f85149) !important;
+}
+
+.ac-quiz-explanation {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  padding: 10px 12px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.ac-quiz-result {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border-default);
+}
+
+.ac-result-pass {
+  border-color: var(--success, #3fb950)55;
+}
+
+.ac-result-fail {
+  border-color: var(--warning, #d29922)55;
+}
+
+.ac-result-score {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ac-result-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* ── Boss timer bar ─────────────────────────────────────────── */
+.ac-boss-timer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.ac-boss-timer-fill {
+  flex: 1;
+  height: 6px;
+  background: #f0883e;
+  border-radius: 3px;
+  transition: width 1s linear;
+}
+
+.ac-timer-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Scenario Challenge ─────────────────────────────────────── */
+.ac-scenario-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ac-scenario-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ac-scenario-text {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.6;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.ac-scenario-input {
+  width: 100%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: inherit;
+  padding: 10px 12px;
+  resize: vertical;
+  min-height: 100px;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+  line-height: 1.5;
+}
+
+.ac-scenario-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.ac-scenario-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ac-word-count {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.ac-grading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.ac-grade-card {
+  border-radius: 10px;
+  border: 1px solid var(--border-default);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ac-grade-pass {
+  border-color: var(--success, #3fb950)55;
+  background: var(--success, #3fb950)0d;
+}
+
+.ac-grade-mid {
+  border-color: var(--warning, #d29922)55;
+  background: var(--warning, #d29922)0d;
+}
+
+.ac-grade-fail {
+  border-color: var(--danger, #f85149)55;
+  background: var(--danger, #f85149)0d;
+}
+
+.ac-grade-score {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ac-grade-stars {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.ac-grade-feedback {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.ac-grade-xp {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Level Complete screen ─────────────────────────────────── */
+.ac-complete-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
+  gap: 16px;
+  text-align: center;
+  animation: ac-complete-in 0.4s ease;
+}
+
+@keyframes ac-complete-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ac-complete-stars {
+  display: flex;
+  gap: 8px;
+}
+
+.ac-star {
+  font-size: 36px;
+  opacity: 0.25;
+  transform: scale(0.7);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.ac-star-on {
+  opacity: 1;
+  transform: scale(1);
+  animation: ac-star-pop 0.4s ease forwards;
+}
+
+@keyframes ac-star-pop {
+  0%   { transform: scale(0.5); }
+  60%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.ac-complete-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ac-complete-name {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.ac-xp-breakdown {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ac-xp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.ac-xp-total {
+  border-top: 1px solid var(--border-default);
+  padding-top: 6px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ac-xp-val {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.ac-complete-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ── Stats panel ────────────────────────────────────────────── */
+.ac-stats-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.ac-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.ac-stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.ac-stat-big {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.ac-stat-lbl {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ac-stats-section-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.ac-world-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ac-wbar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ac-wbar-name {
+  font-size: 11px;
+  color: var(--text-secondary);
+  width: 148px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ac-wbar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ac-wbar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  min-width: 2px;
+}
+
+.ac-wbar-xp {
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 44px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.ac-stats-insight {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+/* ── Loading spinner ────────────────────────────────────────── */
+.ac-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.ac-loading-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.ac-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid var(--border-default);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: ac-spin 0.7s linear infinite;
+}
+
+@keyframes ac-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Confetti ────────────────────────────────────────────────── */
+.ac-confetti-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.ac-confetti-dot {
+  position: absolute;
+  top: -12px;
+  animation: ac-confetti-fall linear forwards;
+}
+
+@keyframes ac-confetti-fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ── Misc ───────────────────────────────────────────────────── */
+.ac-continue-btn {
+  min-width: 200px;
+}
+
+/* ac-tip inside learn-content */
+.ac-learn-content .ac-tip {
+  background: var(--accent)15;
+  border-left: 3px solid var(--accent);
+}

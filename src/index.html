@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSA Ops Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="copilot.css" />
+  <link rel="stylesheet" href="knowledge.css" />
+  <link rel="stylesheet" href="tracking.css" />
+  <link rel="stylesheet" href="academy.css" />
+  <link rel="stylesheet" href="mail.css" />
+  <link rel="stylesheet" href="documents.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Custom Titlebar -->
+    <div class="titlebar">
+      <div class="titlebar-drag">⚔ BSA Ops Hub</div>
+      <div class="titlebar-controls">
+        <button id="btn-minimize" title="Minimize">
+          <svg width="10" height="1" viewBox="0 0 10 1"><rect width="10" height="1" fill="currentColor"/></svg>
+        </button>
+        <button id="btn-maximize" title="Maximize">
+          <svg width="10" height="10" viewBox="0 0 10 10"><rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+        </button>
+        <button id="btn-close" title="Close">
+          <svg width="10" height="10" viewBox="0 0 10 10">
+            <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div id="layout">
+
+      <!-- Sidebar Navigation -->
+      <nav id="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-logo">TLE</div>
+          <div class="brand-subtitle">BSA Ops Hub</div>
+        </div>
+
+        <!-- XP bar injected here by app.js -->
+
+        <ul class="nav-items">
+          <li class="nav-item" data-module="dashboard">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="1" width="6" height="6" rx="1"/>
+              <rect x="9" y="1" width="6" height="6" rx="1"/>
+              <rect x="1" y="9" width="6" height="6" rx="1"/>
+              <rect x="9" y="9" width="6" height="6" rx="1"/>
+            </svg>
+            <span>Dashboard</span>
+          </li>
+          <li class="nav-item" data-module="workitems">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="2" y1="4" x2="14" y2="4"/>
+              <line x1="2" y1="8" x2="14" y2="8"/>
+              <line x1="2" y1="12" x2="10" y2="12"/>
+              <circle cx="1.5" cy="4" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="1.5" cy="8" r="1" fill="currentColor" stroke="none"/>
+              <circle cx="1.5" cy="12" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Work Items</span>
+          </li>
+          <li class="nav-item" data-module="tracking">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="8" cy="8" r="3"/>
+              <circle cx="8" cy="8" r="6.5"/>
+              <line x1="8" y1="1.5" x2="8" y2="3.5"/>
+              <line x1="8" y1="12.5" x2="8" y2="14.5"/>
+              <line x1="1.5" y1="8" x2="3.5" y2="8"/>
+              <line x1="12.5" y1="8" x2="14.5" y2="8"/>
+            </svg>
+            <span>My Tracking</span>
+          </li>
+          <li class="nav-item" data-module="academy">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M8 1 L15 5 L15 7 C15 11 12 13.5 8 15 C4 13.5 1 11 1 7 L1 5 Z"/>
+              <path d="M5 8 L7 10 L11 6" stroke-width="1.3"/>
+            </svg>
+            <span>Academy</span>
+          </li>
+          <li class="nav-item" data-module="mail">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="3" width="14" height="10" rx="1"/>
+              <polyline points="1,4 8,9 15,4"/>
+              <circle cx="12" cy="4" r="2.5" fill="#f85149" stroke="none" id="mail-badge-dot" style="display:none"/>
+            </svg>
+            <span>Mail Inbox</span>
+          </li>
+          <li class="nav-item" data-module="documents">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 2 L10 2 L13 5 L13 14 L3 14 Z"/>
+              <polyline points="10,2 10,5 13,5"/>
+              <line x1="5" y1="8" x2="11" y2="8"/>
+              <line x1="5" y1="11" x2="9" y2="11"/>
+            </svg>
+            <span>Documents</span>
+          </li>
+          <!-- NEW: Quest Board -->
+          <li class="nav-item" data-module="quests">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M8 1 L9.8 5.6 L14.5 5.6 L10.8 8.4 L12.2 13 L8 10.2 L3.8 13 L5.2 8.4 L1.5 5.6 L6.2 5.6 Z"/>
+            </svg>
+            <span>Quest Board</span>
+          </li>
+          <!-- NEW: Follow-Ups -->
+          <li class="nav-item" data-module="followup">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="8" cy="8" r="6.5"/>
+              <polyline points="8,4.5 8,8 11,10"/>
+            </svg>
+            <span>Follow-Ups</span>
+          </li>
+          <!-- Release Calendar -->
+          <li class="nav-item" data-module="release-calendar">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="3" width="14" height="12" rx="1"/>
+              <line x1="1"  y1="7"  x2="15" y2="7"/>
+              <line x1="5"  y1="1"  x2="5"  y2="5"/>
+              <line x1="11" y1="1"  x2="11" y2="5"/>
+              <line x1="4"  y1="10" x2="7"  y2="10"/>
+              <line x1="9"  y1="10" x2="12" y2="10"/>
+            </svg>
+            <span>Release Cal</span>
+          </li>
+          <!-- Loan Context -->
+          <li class="nav-item" data-module="loan-context">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="1" width="12" height="14" rx="1"/>
+              <line x1="5" y1="5" x2="11" y2="5"/>
+              <line x1="5" y1="8" x2="11" y2="8"/>
+              <line x1="5" y1="11" x2="8"  y2="11"/>
+            </svg>
+            <span>Loan Context</span>
+          </li>
+          <!-- Knowledge Base -->
+          <li class="nav-item" data-module="knowledge">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="8" cy="7" r="4"/>
+              <path d="M8 11 L8 14" stroke-linecap="round"/>
+              <path d="M6 14 L10 14" stroke-linecap="round"/>
+              <path d="M6 5.5 Q8 4 10 5.5" stroke-linecap="round"/>
+              <circle cx="8" cy="8.5" r="0.6" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Knowledge</span>
+          </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+          <div class="nav-item" data-module="settings">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="8" cy="8" r="2.5"/>
+              <path d="M8 1.5 L8 3 M8 13 L8 14.5 M1.5 8 L3 8 M13 8 L14.5 8 M3.3 3.3 L4.4 4.4 M11.6 11.6 L12.7 12.7 M12.7 3.3 L11.6 4.4 M4.4 11.6 L3.3 12.7" stroke-linecap="round"/>
+            </svg>
+            <span>Settings</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main id="main">
+        <div id="module-container"></div>
+      </main>
+
+    </div>
+
+    <!-- Status Bar -->
+    <div id="statusbar">
+      <span class="status-dot" id="status-indicator"></span>
+      <span id="status-text">Ready</span>
+      <span class="statusbar-sep">|</span>
+      <span id="status-user"></span>
+      <span class="statusbar-sep">|</span>
+      <span>TLE.Empower</span>
+      <span class="statusbar-flex"></span>
+      <span id="status-time"></span>
+    </div>
+
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="sounds.js"></script>
+  <script src="gamification.js"></script>
+  <script src="celebration.js"></script>
+  <script src="animations.js"></script>
+
+  <!-- Module Scripts -->
+  <script src="modules/empower-screens.js"></script>
+  <script src="modules/empower-guide.js"></script>
+  <script src="modules/dashboard.js"></script>
+  <script src="modules/workitems.js"></script>
+  <script src="modules/settings.js"></script>
+  <script src="modules/quests.js"></script>
+  <script src="modules/followup.js"></script>
+  <script src="modules/tracking.js"></script>
+  <script src="modules/academy.js"></script>
+  <script src="modules/mail.js"></script>
+  <script src="modules/documents.js"></script>
+  <script src="modules/loan-context.js"></script>
+  <script src="modules/release-calendar.js"></script>
+
+  <!-- Knowledge Engine (before app so modules can reference it) -->
+  <script src="knowledge.js"></script>
+
+  <!-- App Orchestration (last) -->
+  <script src="app.js"></script>
+  <!-- Copilot Panel (after app so Modules is ready) -->
+  <script src="copilot.js"></script>
+</body>
+</html>
