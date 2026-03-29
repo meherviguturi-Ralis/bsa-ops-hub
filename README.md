@@ -170,6 +170,78 @@ npm start
 
 ---
 
+##  Future Scope
+
+###  Knowledge Intelligence Layer
+
+- Advanced search across stored knowledge (change requests, business rules, use cases)
+- Auto-tagging and categorization of notes
+- AI-powered suggestions:
+  - "Similar past requests"
+  - "Previously implemented logic"
+- Graph-based relationship view (leveraging Obsidian capabilities)
+
+---
+
+###  Multi-System Integration
+
+- Extend integrations beyond current systems:
+  - Dynamics 365 (CSBK)
+  - SharePoint / Document repositories
+  - Additional LOS / servicing platforms
+- Unified interface for accessing multiple enterprise systems
+
+---
+
+###  Advanced Release Insights
+
+- Sprint capacity tracking per user
+- Burn-down and progress analytics
+- Automated release risk detection using AI
+- Predictive insights:
+  - "Items likely to slip to next sprint"
+  - "Overloaded team members"
+
+---
+
+###  Intelligent Automation
+
+- Auto-creation of ADO tickets from incoming emails (end-to-end automation)
+- Smart field mapping based on historical data
+- Auto-status updates and workflow triggers
+- Notification and alert system
+
+---
+
+###  Enhanced Loan Context (Empower)
+
+- Deeper integration with Empower APIs:
+  - Real-time loan validation
+  - Condition tracking and automation
+- Context-aware recommendations based on loan data
+- Cross-referencing loan scenarios with past cases
+
+---
+
+###  Platform Expansion
+
+- Transform BSA Ops Hub into a modular platform:
+  - Plug-and-play modules
+  - Reusable components for different teams (QA, Dev, Ops)
+- Role-based dashboards
+
+---
+
+###  Internal Knowledge Assistant
+
+- AI assistant trained on internal knowledge vault
+- Ask questions like:
+  - "How was this handled before?"
+  - "What are the rules for this scenario?"
+- Continuous learning system based on stored data
+
+---
+
 ##  Impact
 
 Transforms BSA workflows from:
